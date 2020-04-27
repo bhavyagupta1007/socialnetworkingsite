@@ -19,8 +19,9 @@ gulp.task('css', function(done){
      gulp.src('./assets/**/*.css')
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
-    .pipe(rev.manifest({
-        cwd: 'public',
+    .pipe(rev.manifest('./public/assets/rev-manifest.json',{
+       // cwd: 'public',
+       base:'./public/assets',
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
@@ -34,8 +35,9 @@ gulp.task('js', function(done){
     .pipe(uglify())
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
-    .pipe(rev.manifest({
-        cwd: 'public',
+    .pipe(rev.manifest('./public/assets/rev-manifest.json',{
+       // cwd: 'public',
+       base:'./public/assets',
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
@@ -49,8 +51,9 @@ gulp.task('images', function(done){
     .pipe(imagemin())
     .pipe(rev())
     .pipe(gulp.dest('./public/assets'))
-    .pipe(rev.manifest({
-        cwd: 'public',
+    .pipe(rev.manifest('./public/assets/rev-manifest.json',{
+     //  cwd: 'public',
+     base:'./public/assets',
         merge: true
     }))
     .pipe(gulp.dest('./public/assets'));
